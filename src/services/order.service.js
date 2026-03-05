@@ -13,7 +13,7 @@ export const orderSevice = {
         }
 
         if (!(await validate.isExistingFood(parseInt(food_id)))){
-            throw new BadRequestException(`User ${food_id} do not exist`)
+            throw new BadRequestException(`Food ${food_id} do not exist`)
         }
 
         const sub_foods = await prisma.sub_foods.findMany({
@@ -23,7 +23,7 @@ export const orderSevice = {
         })
 
         const arr_sub_id = sub_foods.map((sub_food) => sub_food.id).join(" ");
-        
+
         const newOrder = await prisma.orders.create({
             data: {
                 user_id: parseInt(user_id),
