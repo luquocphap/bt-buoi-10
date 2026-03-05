@@ -5,8 +5,8 @@ import { prisma } from "./src/common/prisma/connect.prisma.js";
 const app = express()
 const port = 3000
 
-prisma
 
+app.use(express.json())
 app.use("/api",rootRouter);
 app.use(appError);
 
