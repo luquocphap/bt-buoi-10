@@ -1,4 +1,3 @@
-import { BadRequestException, UnauthorizedException } from "../common/helpers/exception.helper.js";
 import { responseSuccess } from "../common/helpers/reponse.helper.js";
 import { ratingService } from "../services/rating.service.js";
 
