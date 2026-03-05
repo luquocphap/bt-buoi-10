@@ -1,8 +1,11 @@
+import { BadRequestException, UnauthorizedException } from "../common/helpers/exception.helper.js";
+import { responseSuccess } from "../common/helpers/reponse.helper.js";
+import { ratingService } from "../services/rating.service.js";
+
 export const ratingController = {
     async rate(req, res, next){
-        const response = {
-            message: "rate"
-        }
+        const data = await ratingService.rate(req);
+        const response = responseSuccess(data, "rate thành công");
         res.status(200).json(response);
     }
 }
