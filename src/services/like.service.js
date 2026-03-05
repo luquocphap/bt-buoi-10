@@ -6,11 +6,11 @@ export const likeService = {
     async like(req){
         const { user_id, res_id } = req.body;
 
-        if (!validate.validateUser(parseInt(user_id))){
+        if (!validate.isExistingUser(parseInt(user_id))){
             throw new BadRequestException(`User ${user_id} do not exists`)
         }
 
-        if (!validate.validateRestaurant(parseInt(res_id))){
+        if (!validate.isExistingRestaurant(parseInt(res_id))){
             throw new BadRequestException(`Restaurant ${res_id} do not exists`)
         }
 
