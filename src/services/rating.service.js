@@ -29,5 +29,19 @@ export const ratingService = {
         })
 
         return true
+    },
+
+    async getRating(req){
+        const { id } = req.params;
+        
+        const getRating = await prisma.rate_res.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        })
+
+        return {
+            Rating: getRating
+        }
     }
 }

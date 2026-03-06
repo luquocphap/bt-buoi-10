@@ -54,5 +54,19 @@ export const likeService = {
 
         return true
         
+    },
+
+    async getLike(req){
+        const { id } = req.params;
+        
+        const getLike = await prisma.like_res.findUnique({
+            where: {
+                id: parseInt(id)
+            }
+        })
+
+        return {
+            Like: getLike
+        }
     }
 }
